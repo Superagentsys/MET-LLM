@@ -22,7 +22,7 @@ def tshark_dump_fields(tmp_pcap: str, display_filter: str, fields: list[str]) ->
 
 
 def run_app():
-    with open("config.json", "r", encoding="utf-8") as fin:
+    with open("configs/config.json", "r", encoding="utf-8") as fin:
         cfg = json.load(fin)
 
     st.set_page_config(page_title="MET-LLM Realtime", page_icon=":satellite:", layout='wide')

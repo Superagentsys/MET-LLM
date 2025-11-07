@@ -3,7 +3,8 @@ import subprocess
 
 
 def main():
-    cmd = [sys.executable, "adaptglm/FT/finetune.py", *sys.argv[1:]]
+    # adaptglm 已替换为 DeepSeek LoRA 训练
+    cmd = [sys.executable, "metllm_core/training/finetune_lora.py", *sys.argv[1:]]
     raise SystemExit(subprocess.call(cmd))
 
 

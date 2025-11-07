@@ -24,14 +24,21 @@ HEADER_HINT_KEYS = (
 )
 
 
-def load_metllm_config(config_path: str = "metllm_config.json") -> dict:
-    if os.path.exists(config_path):
-        try:
-            with open(config_path, "r", encoding="utf-8") as f:
-                cfg = json.load(f)
-            return {**DEFAULT_CONFIG, **cfg}
-        except Exception:
-            return DEFAULT_CONFIG
+def load_metllm_config(config_path: str | None = None) -> dict:
+    # 优先级：显式参数 > configs/metllm_config.json > 根目录（兼容旧路径）
+    candidates = []
+    if config_path:
+        candidates.append(config_path)
+    candidates.append("configs/metllm_config.json")
+    candidates.append("metllm_config.json")
+    for path in candidates:
+        if os.path.exists(path):
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    cfg = json.load(f)
+                return {**DEFAULT_CONFIG, **cfg}
+            except Exception:
+                continue
     return DEFAULT_CONFIG
 
 

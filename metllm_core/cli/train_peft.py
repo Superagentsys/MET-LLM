@@ -3,7 +3,8 @@ import subprocess
 
 
 def main():
-    cmd = [sys.executable, "EA-PEFT/ea-peft.py", *sys.argv[1:]]
+    # 修正为当前仓库的 PEFT 路径
+    cmd = [sys.executable, "peft/ea-peft.py", *sys.argv[1:]]
     raise SystemExit(subprocess.call(cmd))
 
 

@@ -3,7 +3,8 @@ import subprocess
 
 
 def main():
-    cmd = [sys.executable, "dual-stage-tuning/main.py", *sys.argv[1:]]
+    # 统一切换到新的 DeepSeek LoRA 训练脚本
+    cmd = [sys.executable, "metllm_core/training/finetune_lora.py", *sys.argv[1:]]
     raise SystemExit(subprocess.call(cmd))
 
 

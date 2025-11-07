@@ -21,7 +21,7 @@ def build_premise(task: str) -> str:
 
 
 def run_app():
-    with open("config.json", "r", encoding="utf-8") as fin:
+    with open("configs/config.json", "r", encoding="utf-8") as fin:
         cfg = json.load(fin)
 
     st.set_page_config(page_title="MET-LLM Demo", page_icon=":robot:", layout='wide')
