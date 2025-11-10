@@ -1,2 +1,0 @@
-# MET-LLM core package
-
